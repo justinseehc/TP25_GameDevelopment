@@ -8,14 +8,17 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Player player = new Player(10);
-        //player.TakeDamage(3);
-    }
+        // to test code
+        Player player = new Player(100);
+        player.TakeDamage(20);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Projectile Projectile = new Projectile(0);
+        Projectile.Fire(); // depending on the previous line, the output will be different
+
+        ScoreTracker Score = new ScoreTracker(50);
+        Debug.Log("Score: " + Score.GetScore()); // 50
+        Score.ResetScore();
+        Debug.Log("New Score: " + Score.GetScore()); // 0
     }
 }
 
@@ -51,7 +54,7 @@ public class Projectile : MonoBehaviour
 
 public class Player
 {
-    private int health;
+    private int health; // change to private and add getter method
 
     public Player(int health)
     {
@@ -60,7 +63,12 @@ public class Player
 
     public void TakeDamage(int amount)
     {
-        this.health -= amount;
+        int newhealth = this.health - amount;
+        if (newhealth < 0)
+        {
+            this.health = 0;
+            Debug.Log("Player health: " + this.health + "(" + newhealth + ")");
+        }
     }
 
     public int GetHealth()
@@ -71,13 +79,17 @@ public class Player
 
 public class ScoreTracker
 {
-    public int score;
+    private int score; // change to private and add getter method
 
     public ScoreTracker(int score)
     {
         this.score = score;
     }
 
+    public int GetScore()
+    {
+        return this.score;
+    }
 
     public void ResetScore()
     {
