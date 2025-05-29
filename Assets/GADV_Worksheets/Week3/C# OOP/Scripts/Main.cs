@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // to test code
+        // Player.cs
         Player player = new Player(100);
         player.TakeDamage(20);
 
@@ -19,80 +19,28 @@ public class Main : MonoBehaviour
         Debug.Log("Score: " + Score.GetScore()); // 50
         Score.ResetScore();
         Debug.Log("New Score: " + Score.GetScore()); // 0
-    }
-}
 
-public class Projectile : MonoBehaviour
-{
-    private float speed;
-    public Projectile(float speed)
-    {
-        this.speed = speed;
-    }
+        // TreasureChest.cs
+        TreasureChest chest = new TreasureChest(); 
+        chest.Shake();
 
-    public void Fire()
-    {
-        if (this.speed > 0)
-        {
-            Debug.Log("Firing projectile at speed " + speed);
-        } else
-        {
-            Debug.Log("Cannot fire: speed too low.");
-            AutoFire();
-        }
+        AncientChest ancientChest = new AncientChest();
+        ancientChest.Unlock();
+
+        MagicChest magicchest = new MagicChest();
+        magicchest.Unlock();
+
+        chest.Unlock(true);
+        chest.Unlock(false);
+
+        ScoreManager scoremgr = new ScoreManager();
+        scoremgr.AddScore(10);
+        Debug.Log("Score: " + scoremgr.GetScore());
     }
 
-    public void AutoFire()
+    // Update is called once per frame
+    void Update()
     {
-        if (this.speed == 0)
-        {
-            this.speed = 100;
-            Debug.Log("Speed was zero. AutoFire set speed to 100 and launched!");
-        }
-    }
-}
-
-public class Player
-{
-    private int health; // change to private and add getter method
-
-    public Player(int health)
-    {
-        this.health = health;
-    }
-
-    public void TakeDamage(int amount)
-    {
-        int newhealth = this.health - amount;
-        if (newhealth < 0)
-        {
-            this.health = 0;
-            Debug.Log("Player health: " + this.health + "(" + newhealth + ")");
-        }
-    }
-
-    public int GetHealth()
-    {
-        return this.health;
-    }
-}
-
-public class ScoreTracker
-{
-    private int score; // change to private and add getter method
-
-    public ScoreTracker(int score)
-    {
-        this.score = score;
-    }
-
-    public int GetScore()
-    {
-        return this.score;
-    }
-
-    public void ResetScore()
-    {
-        this.score = 0;
+        
     }
 }

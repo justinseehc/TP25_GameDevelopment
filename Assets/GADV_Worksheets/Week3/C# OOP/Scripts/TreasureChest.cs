@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class TreasureChest : MonoBehaviour
 {
-    void Start()
-    {
-        Shake();
-        AncientChest ancientChest = new AncientChest();
-        ancientChest.Unlock();
+    public virtual void Unlock() { }
 
-        MagicChest magicchest = new MagicChest();
-        magicchest.Unlock(); // print different message
+    public virtual void Unlock(bool hasToken)
+    {
+        if (hasToken)
+        {
+            Debug.Log("Unlocking bonus treasure!");
+        }
+        else
+        {
+            Debug.Log("Oops, No Token found! Unlocking normally.");
+        }
     }
 
-    public virtual void Unlock() { }
     public void Shake() 
     {
         Debug.Log("You hear something rattle inside the chest.");
