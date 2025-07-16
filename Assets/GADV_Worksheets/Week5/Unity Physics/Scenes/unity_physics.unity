@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 515955669}
   - component: {fileID: 515955668}
   - component: {fileID: 515955667}
-  - component: {fileID: 515955666}
+  - component: {fileID: 515955672}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -144,18 +144,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!75 &515955666
-ConstantForce:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515955665}
-  m_Enabled: 1
-  m_Force: {x: 1, y: 0, z: 0}
-  m_RelativeForce: {x: 1, y: 0, z: 0}
-  m_Torque: {x: 1, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!54 &515955667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -262,13 +250,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515955665}
   serializedVersion: 2
-  m_LocalRotation: {x: -1.9477887e-18, y: 0.3164983, z: 0.000000037729535, w: 0.94859314}
-  m_LocalPosition: {x: 0, y: 0.835, z: 0}
+  m_LocalRotation: {x: -0, y: -0.31728396, z: -0, w: 0.94833064}
+  m_LocalPosition: {x: 0.000000015098669, y: 1.64, z: -0.000000003579075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 36.903, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -36.997, z: 0}
+--- !u!75 &515955672
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515955665}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 1}
+  m_Torque: {x: 1, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &535807854
 GameObject:
   m_ObjectHideFlags: 0
